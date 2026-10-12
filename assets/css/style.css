@@ -28,6 +28,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* 日本語の改行: 文節(<wbr>)の位置でだけ折り返し、単語の途中で切れないようにする */
+main p, main dd, main dt, main li, main h2 { word-break: keep-all; overflow-wrap: anywhere; line-break: strict; text-wrap: pretty; }
+/* JSで後から入る作品・受賞の文章は、対応ブラウザでは文節単位で自動改行 */
+.card-desc, .card-title, .card-meta, .modal-text, .modal-title, .award-title, .award-detail, .modal-facts dd { word-break: normal; word-break: auto-phrase; }
+
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 4px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
@@ -66,7 +71,7 @@ main, .site-footer { position: relative; z-index: 1; }
 }
 .hero h1:lang(en) { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.8rem, 9vw, 6.4rem); line-height: 1.02; letter-spacing: -0.01em; }
 .lead { color: var(--body); margin-top: 24px; max-width: 28em; font-size: 1.05rem; line-height: 1.9; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: 0.92rem; padding: 11px 24px; border-radius: 999px;
