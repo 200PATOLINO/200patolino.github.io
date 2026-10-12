@@ -319,7 +319,15 @@
       var li = el("li", "award");
       if (a.year) { li.classList.add("has-year"); li.appendChild(el("span", "award-year", a.year)); }
       var body = el("div", "award-body");
-      body.appendChild(el("p", "award-title", a.title));
+      var t = el("p", "award-title");
+      if (a.url) {
+        var link = el("a", "", a.title);
+        link.href = a.url; link.target = "_blank"; link.rel = "noopener";
+        t.appendChild(link);
+      } else {
+        t.textContent = a.title;
+      }
+      body.appendChild(t);
       if (a.detail) body.appendChild(el("p", "award-detail", a.detail));
       li.appendChild(body);
       list.appendChild(li);
