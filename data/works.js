@@ -2,7 +2,8 @@
  * 作品データ
  * ----------------------------------------------------------
  * 作品を増やすときは、下の { ... }, のかたまりを1つコピーして
- * 配列の中に貼り付けるだけです。HTMLやCSSは触らなくて大丈夫です。
+ * 配列の中(最後の ]; より上)に貼り付けるだけです。
+ * 各かたまりの間は「},」でつなぎ、最後のかたまりだけ「}」で終わります。
  *
  * media の書き方
  *   YouTube    : { type: "youtube", id: "動画ID" }
@@ -40,8 +41,7 @@ window.WORKS = [
     tags: ["SFX"],
     media: { type: "youtube", id: "" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
-  }
-],
+  },
   {
     title: "Borrowed Skin",
     category: "ゲームジャム作品 (Brackeys Game Jam 2026.2)",
@@ -51,3 +51,4 @@ window.WORKS = [
     media: { type: "none" },
     links: [{ label: "itch.io でプレイ", url: "https://luvbytes404.itch.io/borrowed-skin-moonmoss" }]
   }
+];
