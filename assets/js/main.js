@@ -216,7 +216,9 @@
     function open() { openModal(work); }
 
     var card = el("article", "card");
-    card.appendChild(buildThumb(work, open));
+    var frame = el("div", "thumb-frame");
+    frame.appendChild(buildThumb(work, open));
+    card.appendChild(frame);
 
     var body = el("div", "card-body");
     var cardMeta = metaNode(work);

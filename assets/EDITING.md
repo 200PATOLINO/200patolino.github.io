@@ -7,7 +7,7 @@ index.html            ← 페이지 뼈대와 소개 문구(일본어)
 assets/css/style.css  ← 디자인(색, 글자 크기, 간격)
 assets/js/main.js     ← 작품 카드를 그려주는 스크립트 (보통 안 건드려도 됨)
 assets/js/wave-bg.js  ← 배경에 흐르는 파형 (보통 안 건드려도 됨)
-assets/js/stack.js    ← 스크롤하면 다음 섹션이 올라와 덮는 효과 (보통 안 건드려도 됨)
+assets/js/flow.js     ← 스크롤하면 섹션이 뒤에서 커지며 나오는 깊이 효과 (보통 안 건드려도 됨)
 data/works.js         ← 작품 목록 (작품 추가는 여기만)
 data/site.js          ← 이메일, YouTube/SoundCloud 등 링크
 EDITING.md            ← 이 파일

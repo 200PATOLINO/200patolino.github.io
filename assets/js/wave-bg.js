@@ -80,7 +80,13 @@
 
   // ヒーローが下のセクションに完全に隠れたら描画を止めて省電力
   function heroVisible() {
-    return window.scrollY < h * 1.6;
+    return window.scrollY < h;
+  }
+
+  // ヒーローから離れるにつれて、波形をすっと消していく(セクションに背景がないため)
+  function fade() {
+    var o = 1 - window.scrollY / (h * 0.8);
+    canvas.style.opacity = o < 0 ? 0 : o > 1 ? 1 : o.toFixed(3);
   }
 
   function frame(now) {
@@ -96,7 +102,7 @@
   }
 
   document.addEventListener("visibilitychange", kick);
-  window.addEventListener("scroll", kick, { passive: true });
+  window.addEventListener("scroll", function () { fade(); kick(); }, { passive: true });
 
   var resizeTimer = 0;
   window.addEventListener("resize", function () {
