@@ -17,7 +17,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html { scroll-behavior: smooth; scroll-padding-top: 56px; }
 
 body {
   background: var(--bg);
@@ -62,7 +62,17 @@ main, .site-footer { position: relative; z-index: 1; }
 .lead { color: var(--muted); margin-top: 20px; max-width: 30em; font-size: 1rem; }
 
 /* ---------- Sections ---------- */
-.section { padding: 88px 0 72px; border-top: 1px solid var(--line); }
+.section { padding: 88px 0 72px; border-top: 1px solid var(--line); background: var(--bg); }
+
+/* ---------- せり上がるスクロール(assets/js/stack.js) ---------- */
+/* 次のセクションが前のセクションの上に重なってくる。JSが動いたときだけ有効 */
+.anchor { display: block; height: 0; }
+.has-stack main > section { position: sticky; top: 56px; }
+.has-stack .section {
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 -20px 44px rgba(0, 0, 0, 0.6);
+}
+.has-stack main > section > .wrap { transform-origin: 50% 0; will-change: transform, opacity; }
 .section-title {
   display: flex; align-items: baseline; gap: 14px;
   font-size: 1.8rem; font-weight: 900; letter-spacing: 0.02em; line-height: 1.3; margin-bottom: 36px;
@@ -222,7 +232,7 @@ html.modal-open { overflow: hidden; }
 .link-list { list-style: none; display: flex; flex-wrap: wrap; gap: 22px; margin-top: 24px; font-size: 0.92rem; }
 .link-list:empty { display: none; }
 
-.site-footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--muted); font-size: 0.8rem; }
+.site-footer { background: var(--bg); border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--muted); font-size: 0.8rem; }
 
 /* ---------- Responsive / a11y ---------- */
 @media (max-width: 720px) {

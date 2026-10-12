@@ -7,6 +7,7 @@ index.html            ← 페이지 뼈대와 소개 문구(일본어)
 assets/css/style.css  ← 디자인(색, 글자 크기, 간격)
 assets/js/main.js     ← 작품 카드를 그려주는 스크립트 (보통 안 건드려도 됨)
 assets/js/wave-bg.js  ← 배경에 흐르는 파형 (보통 안 건드려도 됨)
+assets/js/stack.js    ← 스크롤하면 다음 섹션이 올라와 덮는 효과 (보통 안 건드려도 됨)
 data/works.js         ← 작품 목록 (작품 추가는 여기만)
 data/site.js          ← 이메일, YouTube/SoundCloud 등 링크
 EDITING.md            ← 이 파일
@@ -53,7 +54,7 @@ EDITING.md            ← 이 파일
 
 ## 배경 파형 / 사용 도구
 
-- 사이트 전체 배경에 깔린 움직이는 파형은 `assets/js/wave-bg.js`가 만들어요. 소리는 나지 않고, 마우스로 건드리면 현처럼 흔들려요. 색과 진하기는 파일 맨 위 `CONFIG`에서 바꿔요.
+- 사이트 전체 배경에 깔린 움직이는 파형은 `assets/js/wave-bg.js`가 만들어요. 소리도 안 나고 클릭에도 반응하지 않아요. 첫 화면 뒤에만 보이고, 아래 섹션이 올라오면 가려져요. 색과 진하기는 파일 맨 위 `CONFIG`에서 바꿔요.
 - About의 「使用ツール」 목록은 `data/site.js`의 `tools: [...]`에서 바꿔요. 비워두면(`[]`) 그 줄이 사라져요.
 
 ## 소개 문구 / 이메일 / 링크 바꾸기
