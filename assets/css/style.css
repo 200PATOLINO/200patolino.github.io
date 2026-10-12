@@ -122,9 +122,16 @@ main, .site-footer { position: relative; z-index: 1; }
 
 .card {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-  overflow: hidden; transition: border-color 0.2s;
+  overflow: hidden; position: relative;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s, border-color 0.25s;
 }
-.card:hover { border-color: rgba(236, 208, 111, 0.5); }
+/* ホバー(キーボード操作時はフォーカス)で、カードが少し浮き上がって大きくなる */
+.card:hover, .card:focus-within {
+  transform: translateY(-6px) scale(1.015);
+  border-color: rgba(236, 208, 111, 0.55);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(236, 208, 111, 0.12);
+  z-index: 1;
+}
 .card-body { padding: 18px 20px 22px; }
 .card-meta { display: flex; flex-wrap: wrap; gap: 0 12px; color: var(--muted); font-size: 0.76rem; letter-spacing: 0.02em; }
 .card-meta .year { font-family: var(--font-display); font-weight: 700; color: var(--accent); }
@@ -155,18 +162,16 @@ main, .site-footer { position: relative; z-index: 1; }
 .media-video:hover::after { background: rgba(0, 0, 0, 0.1); }
 .media-image::after { background: rgba(0, 0, 0, 0.12); }
 
-/* ホバーで走査線(再生ヘッド)が流れる */
-.media-thumb::before {
-  content: ""; position: absolute; z-index: 2; top: 0; bottom: 0; left: 0; width: 2px;
-  background: var(--accent); box-shadow: 0 0 12px 1px rgba(236, 208, 111, 0.7);
-  opacity: 0; pointer-events: none;
-}
-.media-thumb:hover::before, .card:focus-within .media-thumb::before { opacity: 1; animation: scan 1.6s linear infinite; }
-@keyframes scan { from { left: 0; } to { left: 100%; } }
+/* カード内のサムネイルはゆっくりズーム、再生ボタンは黄色く光る */
+.media-thumb { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.card:hover .media-thumb, .card:focus-within .media-thumb { transform: scale(1.06); }
+.card:hover .play, .card:focus-within .play { background: var(--accent); transform: scale(1.08); }
+.card:hover .play::before, .card:focus-within .play::before { border-left-color: var(--bg); }
 
 .play {
   position: absolute; z-index: 1; top: 50%; left: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px;
   border-radius: 50%; background: rgba(10, 10, 10, 0.8); border: 1px solid var(--accent);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.25s;
 }
 .play::before {
   content: ""; position: absolute; top: 50%; left: 50%; margin: -8px 0 0 -5px;
@@ -263,6 +268,6 @@ html.modal-open { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .card, .media-video::after { transition: none; }
-  .media-thumb:hover::before, .card:focus-within .media-thumb::before { animation: none; left: 50%; }
+  .card, .media-video::after, .media-thumb, .play { transition: none; }
+  .card:hover, .card:focus-within, .card:hover .media-thumb, .card:focus-within .media-thumb, .card:hover .play, .card:focus-within .play { transform: none; }
 }

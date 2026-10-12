@@ -5,7 +5,7 @@
  */
 window.SITE = {
   email: "leeseongmin1996@gmail.com",
-  tools: ["Reaper", "Logic Pro", "Pro Tools", "Wwise", "Soundly", "Splice"],
+  tools: ["Reaper", "Logic Pro", "Pro Tools", "Wwise"],
   links: [
     { label: "YouTube", url: "" },
     { label: "SoundCloud", url: "" },
