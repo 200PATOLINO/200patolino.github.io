@@ -109,6 +109,17 @@ main, .site-footer { position: relative; z-index: 1; }
 .tool-list { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 2px; }
 .tool-list li { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; }
 
+/* ---------- Awards ---------- */
+.award-list { list-style: none; border-top: 1px solid var(--line); }
+.award { display: grid; grid-template-columns: 5.5em 1fr; gap: 16px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.award-year { font-family: var(--font-display); font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+.award-title { font-size: 1.12rem; font-weight: 700; line-height: 1.6; }
+.award-detail { color: var(--muted); font-size: 0.88rem; margin-top: 2px; }
+@media (max-width: 720px) {
+  .award { grid-template-columns: 1fr; gap: 2px; padding: 18px 0; }
+  .award-title { font-size: 1rem; }
+}
+
 /* ---------- Works ---------- */
 .filter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
 .filter:empty { display: none; }

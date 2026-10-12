@@ -307,10 +307,30 @@
     row.hidden = false;
   }
 
+  /* ---------- 受賞歴 ---------- */
+  function renderAwards() {
+    var site = window.SITE || {};
+    var list = document.getElementById("award-list");
+    var section = document.getElementById("awards-section");
+    if (!list || !section) return;
+    var items = (site.awards || []).filter(function (a) { return a && a.title; });
+    if (!items.length) { section.hidden = true; return; }
+    items.forEach(function (a) {
+      var li = el("li", "award");
+      li.appendChild(el("span", "award-year", a.year || ""));
+      var body = el("div", "award-body");
+      body.appendChild(el("p", "award-title", a.title));
+      if (a.detail) body.appendChild(el("p", "award-detail", a.detail));
+      li.appendChild(body);
+      list.appendChild(li);
+    });
+  }
+
   function init() {
     renderWorks();
     renderContact();
     renderTools();
+    renderAwards();
     var year = document.getElementById("year");
     if (year) year.textContent = new Date().getFullYear();
   }

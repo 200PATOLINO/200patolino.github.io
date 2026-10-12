@@ -18,6 +18,8 @@
 
   function layout() {
     headerH = header ? header.offsetHeight : 0;
+    // ヘッダーが2段になる狭い画面でも、メニューで飛んだ先が隠れないように
+    document.documentElement.style.scrollPaddingTop = headerH + "px";
     var vh = window.innerHeight;
     sections.forEach(function (s) {
       // 短いセクション: ヘッダーのすぐ下で止まる / 長いセクション: 下端が画面下に来たところで止まる
@@ -30,15 +32,17 @@
   function update() {
     ticking = false;
     if (reduceMotion) return;
-    var vh = window.innerHeight;
-    var range = Math.max(vh - headerH, 1);
     for (var i = 0; i < sections.length; i++) {
       var inner = sections[i].firstElementChild;
       if (!inner) continue;
       var next = sections[i + 1];
       var p = 0;
       if (next) {
-        p = (vh - next.getBoundingClientRect().top) / range;
+        // 次のセクションが実際に重なり始めてから(自分の下端を越えてから)暗くする
+        var r = sections[i].getBoundingClientRect();
+        var bottom = Math.min(r.bottom, window.innerHeight);
+        var range = Math.max(bottom - headerH, 1);
+        p = (bottom - next.getBoundingClientRect().top) / range;
         p = p < 0 ? 0 : p > 1 ? 1 : p;
       }
       if (p === 0) {
