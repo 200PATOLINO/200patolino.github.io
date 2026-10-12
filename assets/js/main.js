@@ -249,8 +249,9 @@
     var filterBox = document.getElementById("works-filter");
     if (!grid) return;
 
+    // draft の空き枠は、確認用に日本語ページだけ表示(英語ページには出ません)
     var works = (window.WORKS || [])
-      .filter(function (w) { return w && (!w.draft || window.SHOW_DRAFTS); })
+      .filter(function (w) { return w && (!w.draft || (window.SHOW_DRAFTS && !IS_EN)); })
       .map(localize);
     // 英語ページだけ: en: { order: 1 } を書いた作品を先頭に(数字が小さい順)。ほかは元の順のまま
     if (IS_EN) {
