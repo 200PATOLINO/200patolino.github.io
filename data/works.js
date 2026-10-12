@@ -34,12 +34,12 @@ window.WORKS = [
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   },
   {
-    title: "作品タイトル 3",
+    title: "CAPCOM Contest",
     category: "ゲーム映像 サウンドリデザイン",
     year: "2026",
-    description: "使用ツールや担当範囲などを、1〜2行で書いてください。",
-    tags: ["SFX"],
-    media: { type: "youtube", id: "" },
+    description: "使用ツール:Logic Pro。ライブラリ:Soundly、Splice。自分で収録したFoleyも使用。制作期間約40時間。",
+    tags: ["SFX", "Foley"],
+    media: { type: "youtube", id: "CBrUTeC69t4" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   },
   {
