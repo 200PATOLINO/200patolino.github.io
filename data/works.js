@@ -16,21 +16,21 @@
  */
 window.WORKS = [
   {
-    title: "作品タイトル 1",
+    title: "BlackDesertSkillSound制作",
     category: "ゲーム映像 サウンドリデザイン",
     year: "2026",
-    description: "使用ツールや担当範囲などを、1〜2行で書いてください。",
-    tags: ["SFX"],
+    description: "LogicPro ,Soundly,Splice使用、制作期間１週間",
+    tags: ["SFX"],["Skill"],
     media: { type: "youtube", id: "-uvS4SlQrh0" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   },
   {
-    title: "作品タイトル 2",
-    category: "ゲーム映像 サウンドリデザイン",
+    title: "BIFSC提出作",
+    category: "映像 サウンドリデザイン",
     year: "2026",
-    description: "使用ツールや担当範囲などを、1〜2行で書いてください。",
-    tags: ["SFX"],
-    media: { type: "youtube", id: "" },
+    description: "LogicPro ,Soundly ,Splice、自分のFoley使用、制作期間1月間",
+    tags: ["SFX"],["短編映像"]
+    media: { type: "youtube", id: "zdIdv4i0clI" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   },
   {
