@@ -116,7 +116,7 @@
     } else if (m.type === "soundcloud" && m.url) {
       frame = document.createElement("iframe");
       frame.className = "modal-frame";
-      frame.src = "https://w.soundcloud.com/player/?color=%235eead4&visual=false&auto_play=true&url=" + encodeURIComponent(m.url);
+      frame.src = "https://w.soundcloud.com/player/?color=%23ecd06f&visual=false&auto_play=true&url=" + encodeURIComponent(m.url);
       frame.allow = "autoplay";
       modal.media.classList.add("is-audio");
     }

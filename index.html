@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SEONGMIN SOUND | ゲームサウンドデザイナー</title>
   <meta name="description" content="ゲームサウンドデザイナーを目指すイ・ソンミンのポートフォリオ。効果音(SFX)を中心としたサウンドデザイン作品を掲載しています。">
-  <meta name="theme-color" content="#0b1114">
+  <meta name="theme-color" content="#0a0a0a">
   <meta property="og:type" content="website">
   <meta property="og:title" content="SEONGMIN SOUND | ゲームサウンドデザイナー">
   <meta property="og:description" content="効果音(SFX)を中心としたサウンドデザイン作品集">
   <meta property="og:url" content="https://somoks1.github.io/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1114'/%3E%3Cpath d='M6 16h2M11 10v12M16 6v20M21 11v10M26 14v4' stroke='%235eead4' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Cpath d='M6 16h2M11 10v12M16 6v20M21 11v10M26 14v4' stroke='%23ecd06f' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <canvas class="bg-wave" id="bg-wave" aria-hidden="true"></canvas>
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="logo" href="#top">SEONGMIN <span>SOUND</span></a>
@@ -30,20 +31,11 @@
 
   <main id="top">
     <section class="hero" id="hero">
-      <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow">Game Sound Designer</p>
-          <h1>音で、ゲームの<br>手触りをつくる。</h1>
-          <p class="lead">効果音(SFX)を軸に、ゲームの世界観と操作感を支えるサウンドデザインに取り組んでいます。</p>
-        </div>
-        <div class="hero-controls">
-          <button type="button" class="btn" id="hero-play">効果音を鳴らす</button>
-          <button type="button" class="btn btn-quiet" id="hero-sound" aria-pressed="true">音 ON</button>
-          <p class="hero-hint">波形に触れる、または画面をクリックすると音が鳴ります。<span class="hero-sfx" id="hero-sfx"></span></p>
-        </div>
+      <div class="wrap">
+        <p class="eyebrow">Game Sound Designer</p>
+        <h1>音で、ゲームの<br>手触りをつくる。</h1>
+        <p class="lead">効果音(SFX)を軸に、ゲームの世界観と操作感を支えるサウンドデザインに取り組んでいます。</p>
       </div>
-      <div class="meter" id="hero-meter" aria-hidden="true"></div>
     </section>
 
     <section class="section" id="about">
@@ -89,7 +81,7 @@
 
   <script src="data/site.js" defer></script>
   <script src="data/works.js" defer></script>
-  <script src="assets/js/hero.js" defer></script>
+  <script src="assets/js/wave-bg.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

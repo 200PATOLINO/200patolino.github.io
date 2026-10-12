@@ -1,12 +1,13 @@
 :root {
-  --bg: #0b1114;
-  --surface: #111a1e;
-  --surface-2: #162227;
-  --line: #1d2b31;
-  --text: #e8eeee;
-  --muted: #88989e;
-  --accent: #5eead4;
-  --peak: #ffb347;
+  --bg: #0a0a0a;
+  --surface: #131313;
+  --surface-2: #1a1a1a;
+  --line: #262626;
+  --text: #f2f0eb;
+  --muted: #9b9a95;
+  --body: #cfcdc7;
+  --accent: #ecd06f;
+  --peak: #d14836;
   --radius: 6px;
   --maxw: 1040px;
   --font-body: "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
@@ -36,7 +37,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* ---------- Header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 10;
-  background: rgba(11, 17, 20, 0.8);
+  background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -50,50 +51,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .nav a:hover { color: var(--text); text-decoration: none; }
 
 /* ---------- Hero ---------- */
-.hero {
-  position: relative; overflow: hidden;
-  display: flex; flex-direction: column;
-  min-height: max(560px, calc(100svh - 56px));
-}
-.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: pan-y; }
-.hero-inner {
-  position: relative; z-index: 1; flex: 1;
-  display: flex; flex-direction: column; justify-content: space-between;
-  width: 100%; pointer-events: none;
-}
-.hero-copy { padding-top: clamp(40px, 9vh, 96px); }
+/* 波形はページ全体の固定背景(assets/js/wave-bg.js)。前面のコンテンツは z-index で上に重ねる */
+.bg-wave { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; pointer-events: none; }
+main, .site-footer { position: relative; z-index: 1; }
+.hero { min-height: calc(100svh - 56px); padding: clamp(48px, 10vh, 104px) 0 48px; }
 .eyebrow { color: var(--accent); font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; margin-bottom: 14px; }
 .hero h1 {
   font-size: clamp(2.3rem, 7.2vw, 5rem); line-height: 1.22; font-weight: 900; letter-spacing: 0.01em;
 }
 .lead { color: var(--muted); margin-top: 20px; max-width: 30em; font-size: 1rem; }
-
-.hero-controls {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px;
-  padding-bottom: 28px; pointer-events: auto;
-}
-.btn {
-  font: inherit; font-size: 0.88rem; font-weight: 700; cursor: pointer;
-  color: var(--bg); background: var(--accent);
-  border: 1px solid var(--accent); border-radius: 999px; padding: 7px 18px;
-  transition: transform 0.12s, background 0.15s;
-}
-.btn:hover { background: #8ff3e3; }
-.btn:active { transform: scale(0.96); }
-.btn-quiet { background: transparent; color: var(--muted); border-color: var(--line); }
-.btn-quiet:hover { background: transparent; color: var(--text); border-color: var(--muted); }
-.btn-quiet[aria-pressed="true"] { color: var(--accent); border-color: rgba(94, 234, 212, 0.4); }
-.hero-hint { color: var(--muted); font-size: 0.8rem; margin-left: 6px; }
-.hero-sfx { color: var(--peak); font-family: var(--font-display); font-weight: 700; margin-left: 10px; }
-.hero-sfx:empty { display: none; }
-
-.meter {
-  position: absolute; z-index: 1; right: clamp(14px, 3vw, 36px); bottom: 30px;
-  display: flex; flex-direction: column-reverse; gap: 3px; pointer-events: none;
-}
-.meter span { width: 14px; height: 4px; border-radius: 1px; background: var(--line); transition: background 0.06s; }
-.meter span.on { background: var(--accent); }
-.meter span.peak.on { background: var(--peak); }
 
 /* ---------- Sections ---------- */
 .section { padding: 88px 0 72px; border-top: 1px solid var(--line); }
@@ -105,7 +71,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .about { display: grid; gap: 48px; grid-template-columns: 1.35fr 1fr; align-items: start; }
 .about-lead { font-size: 1.15rem; font-weight: 500; line-height: 1.9; }
-.about-text p { color: #c3ccce; max-width: 34em; }
+.about-text p { color: var(--body); max-width: 34em; }
 .about-text p + p { margin-top: 16px; }
 
 .facts { border-top: 1px solid var(--line); }
@@ -131,7 +97,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   overflow: hidden; transition: border-color 0.2s;
 }
-.card:hover { border-color: rgba(94, 234, 212, 0.45); }
+.card:hover { border-color: rgba(236, 208, 111, 0.5); }
 .card-body { padding: 18px 20px 22px; }
 .card-meta { display: flex; flex-wrap: wrap; gap: 0 12px; color: var(--muted); font-size: 0.76rem; letter-spacing: 0.02em; }
 .card-meta .year { font-family: var(--font-display); font-weight: 700; color: var(--accent); }
@@ -151,9 +117,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 }
 
 .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin-top: 14px; }
-.tags li { font-size: 0.72rem; color: var(--accent); border: 1px solid rgba(94, 234, 212, 0.28); border-radius: 999px; padding: 1px 10px; }
+.tags li { font-size: 0.72rem; color: var(--accent); border: 1px solid rgba(236, 208, 111, 0.32); border-radius: 999px; padding: 1px 10px; }
 
-.media { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #070b0d; }
+.media { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #050505; }
 .media-video {
   position: relative; cursor: pointer; padding: 0; overflow: hidden;
   background-size: cover; background-position: center;
@@ -165,7 +131,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* ホバーで走査線(再生ヘッド)が流れる */
 .media-thumb::before {
   content: ""; position: absolute; z-index: 2; top: 0; bottom: 0; left: 0; width: 2px;
-  background: var(--accent); box-shadow: 0 0 12px 1px rgba(94, 234, 212, 0.7);
+  background: var(--accent); box-shadow: 0 0 12px 1px rgba(236, 208, 111, 0.7);
   opacity: 0; pointer-events: none;
 }
 .media-thumb:hover::before, .card:focus-within .media-thumb::before { opacity: 1; animation: scan 1.6s linear infinite; }
@@ -173,7 +139,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .play {
   position: absolute; z-index: 1; top: 50%; left: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px;
-  border-radius: 50%; background: rgba(11, 17, 20, 0.8); border: 1px solid var(--accent);
+  border-radius: 50%; background: rgba(10, 10, 10, 0.8); border: 1px solid var(--accent);
 }
 .play::before {
   content: ""; position: absolute; top: 50%; left: 50%; margin: -8px 0 0 -5px;
@@ -207,7 +173,7 @@ html.modal-open { overflow: hidden; }
   border: 1px solid var(--line); border-radius: 8px;
   background: var(--surface); color: var(--text);
 }
-.modal::backdrop { background: rgba(4, 7, 9, 0.85); }
+.modal::backdrop { background: rgba(0, 0, 0, 0.88); }
 .modal[open] { animation: modal-in 0.18s ease-out; }
 @keyframes modal-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
@@ -215,7 +181,7 @@ html.modal-open { overflow: hidden; }
 .modal-close {
   position: absolute; top: 10px; right: 10px; z-index: 2;
   width: 38px; height: 38px; border-radius: 50%;
-  border: 1px solid var(--line); background: rgba(11, 17, 20, 0.85);
+  border: 1px solid var(--line); background: rgba(10, 10, 10, 0.85);
   color: var(--text); font-size: 1.3rem; line-height: 1; cursor: pointer;
 }
 .modal-close:hover { border-color: var(--accent); color: var(--accent); }
@@ -228,7 +194,7 @@ html.modal-open { overflow: hidden; }
 .modal-body { padding: 24px 28px 32px; }
 .modal-panel.no-media .modal-body { padding-top: 56px; }
 .modal-title { font-size: 1.5rem; line-height: 1.4; margin-top: 4px; font-weight: 700; }
-.modal-text { color: #c3ccce; margin-top: 14px; line-height: 1.9; }
+.modal-text { color: var(--body); margin-top: 14px; line-height: 1.9; }
 
 .modal-facts { margin-top: 22px; border-top: 1px solid var(--line); }
 .modal-facts > div {
@@ -264,13 +230,10 @@ html.modal-open { overflow: hidden; }
   .about { grid-template-columns: 1fr; gap: 32px; }
   .nav { gap: 16px; }
   .section { padding: 64px 0 52px; }
-  .hero-controls { padding-right: 24px; }
-  .hero-hint { margin-left: 0; flex-basis: 100%; }
-  .meter span { width: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .card, .media-video::after, .btn, .meter span { transition: none; }
+  .card, .media-video::after { transition: none; }
   .media-thumb:hover::before, .card:focus-within .media-thumb::before { animation: none; left: 50%; }
 }
