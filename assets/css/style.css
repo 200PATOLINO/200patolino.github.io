@@ -42,11 +42,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
-.logo { font-family: var(--font-display); color: var(--text); font-weight: 800; letter-spacing: 0.06em; font-size: 0.95rem; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0 16px; min-height: 56px; padding-top: 6px; padding-bottom: 6px; }
+.logo { white-space: nowrap; flex-shrink: 0; font-family: var(--font-display); color: var(--text); font-weight: 800; letter-spacing: 0.06em; font-size: 0.95rem; }
 .logo span { color: var(--accent); }
 .logo:hover { text-decoration: none; }
-.nav { display: flex; gap: 22px; }
+.nav { display: flex; gap: 22px; white-space: nowrap; }
 .nav a { color: var(--muted); font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.03em; }
 .nav a:hover { color: var(--text); text-decoration: none; }
 
@@ -228,7 +228,9 @@ html.modal-open { overflow: hidden; }
 @media (max-width: 720px) {
   .wrap { padding: 0 18px; }
   .about { grid-template-columns: 1fr; gap: 32px; }
-  .nav { gap: 16px; }
+  .nav { gap: 14px; }
+  .logo { font-size: 0.8rem; letter-spacing: 0.03em; }
+  .nav a { font-size: 0.78rem; }
   .section { padding: 64px 0 52px; }
 }
 
