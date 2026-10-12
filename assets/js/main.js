@@ -13,6 +13,21 @@
     return node;
   }
 
+  /* ---------- 言語切り替え(英語ページは <html lang="en">) ---------- */
+  var IS_EN = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+  var T = IS_EN
+    ? { noVideo: "Video coming soon", close: "Close", role: "Role", tools: "Tools", more: "View details ›", empty: "Works are coming soon.", all: "All" }
+    : { noVideo: "動画準備中", close: "閉じる", role: "担当", tools: "使用ツール", more: "詳細を見る ›", empty: "作品は準備中です。", all: "すべて" };
+
+  // データ側の en: { ... } に書いた項目で、英語ページだけ上書きする
+  function localize(item) {
+    if (!IS_EN || !item || !item.en) return item;
+    var out = {}, k;
+    for (k in item) out[k] = item[k];
+    for (k in item.en) out[k] = item.en[k];
+    return out;
+  }
+
   function metaNode(work) {
     if (!work.category && !work.year) return null;
     var p = el("p", "card-meta");
@@ -48,7 +63,7 @@
       box.style.backgroundImage = 'url("' + String(work.thumb).replace(/"/g, "%22") + '")';
     } else {
       box.classList.add("media-empty");
-      box.textContent = (m.type === "soundcloud" && m.url) ? "♪ AUDIO" : "動画準備中";
+      box.textContent = (m.type === "soundcloud" && m.url) ? "♪ AUDIO" : T.noVideo;
     }
     box.addEventListener("click", onOpen);
     return box;
@@ -80,7 +95,7 @@
     var panel = el("div", "modal-panel");
     var close = el("button", "modal-close", "×");
     close.type = "button";
-    close.setAttribute("aria-label", "閉じる");
+    close.setAttribute("aria-label", T.close);
     var media = el("div", "modal-media");
     var body = el("div", "modal-body");
 
@@ -163,8 +178,8 @@
       row.appendChild(dd);
       facts.appendChild(row);
     }
-    if (work.role) addFact("担当", document.createTextNode(work.role));
-    if (work.tools && work.tools.length) addFact("使用ツール", tagList(work.tools));
+    if (work.role) addFact(T.role, document.createTextNode(work.role));
+    if (work.tools && work.tools.length) addFact(T.tools, tagList(work.tools));
     if (facts.childNodes.length) body.appendChild(facts);
 
     if (work.tags && work.tags.length) body.appendChild(tagList(work.tags));
@@ -217,7 +232,7 @@
     if (work.description) body.appendChild(el("p", "card-desc", work.description));
     if (work.tags && work.tags.length) body.appendChild(tagList(work.tags));
 
-    var more = el("button", "more", "詳細を見る ›");
+    var more = el("button", "more", T.more);
     more.type = "button";
     more.tabIndex = -1;
     more.setAttribute("aria-hidden", "true");
@@ -234,9 +249,9 @@
     var filterBox = document.getElementById("works-filter");
     if (!grid) return;
 
-    var works = window.WORKS || [];
+    var works = (window.WORKS || []).map(localize);
     if (!works.length) {
-      grid.appendChild(el("p", "empty", "作品は準備中です。"));
+      grid.appendChild(el("p", "empty", T.empty));
       return;
     }
 
@@ -256,7 +271,7 @@
 
     if (filterBox && works.length > 6 && allTags.length > 1) {
       var buttons = [];
-      ["すべて"].concat(allTags).forEach(function (label, i) {
+      [T.all].concat(allTags).forEach(function (label, i) {
         var b = el("button", "chip" + (i === 0 ? " is-active" : ""), label);
         b.type = "button";
         b.addEventListener("click", function () {

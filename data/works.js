@@ -12,6 +12,7 @@
  *   未設定      : { type: "none" } (「動画準備中」と表示されます)
  *
  * links : 制作解説書(PDF)などの追加リンク。url が空なら表示されません。
+ * en    : 英語ページ用の上書き。category / description / tags / links などを英語で書けます(書かない項目は日本語のまま)。
  * tags  : 作品が7件以上になると、タグでの絞り込みボタンが自動で表示されます。
  */
 window.WORKS = [
@@ -22,7 +23,12 @@ window.WORKS = [
     description: "使用ツール:Logic Pro。ライブラリ:Soundly、Splice。制作期間1週間。",
     tags: ["SFX", "Skill"],
     media: { type: "youtube", id: "-uvS4SlQrh0" },
-    links: [{ label: "制作解説書 (PDF)", url: "" }]
+    links: [{ label: "制作解説書 (PDF)", url: "" }],
+    en: {
+      category: "Game footage sound redesign (Black Desert)",
+      description: "Tools: Logic Pro. Libraries: Soundly, Splice. Production time: 1 week.",
+      links: [{ label: "Production notes (PDF)", url: "" }]
+    }
   },
   {
     title: "BIFSC 2026 Finalist",
@@ -31,7 +37,13 @@ window.WORKS = [
     description: "使用ツール:Logic Pro。ライブラリ:Soundly、Splice。自分で収録したFoleyも使用。制作期間1か月。",
     tags: ["SFX", "短編映像", "Finalist"],
     media: { type: "youtube", id: "zdIdv4i0clI" },
-    links: [{ label: "制作解説書 (PDF)", url: "" }]
+    links: [{ label: "制作解説書 (PDF)", url: "" }],
+    en: {
+      category: "Film sound redesign (Berlin International Sound Design Competition)",
+      description: "Tools: Logic Pro. Libraries: Soundly, Splice. Also used Foley I recorded myself. Production time: 1 month.",
+      tags: ["SFX", "Short film", "Finalist"],
+      links: [{ label: "Production notes (PDF)", url: "" }]
+    }
   },
   {
     title: "CAPCOM Contest",
@@ -40,7 +52,12 @@ window.WORKS = [
     description: "使用ツール:Logic Pro。ライブラリ:Soundly、Splice。自分で収録したFoleyも使用。制作期間約40時間。",
     tags: ["SFX", "Foley"],
     media: { type: "youtube", id: "CBrUTeC69t4" },
-    links: [{ label: "制作解説書 (PDF)", url: "" }]
+    links: [{ label: "制作解説書 (PDF)", url: "" }],
+    en: {
+      category: "Game sound redesign",
+      description: "Tools: Logic Pro. Libraries: Soundly, Splice. Also used Foley I recorded myself. Production time: approx. 40 hours.",
+      links: [{ label: "Production notes (PDF)", url: "" }]
+    }
   },
   {
     title: "Borrowed Skin",
@@ -50,6 +67,11 @@ window.WORKS = [
     tags: ["SFX", "Game Jam"],
     media: { type: "none" },
     thumb: "https://img.itch.zone/aW1nLzI5NjExNjgwLnBuZw==/508x254%23mb/UWWhdy.png",
-    links: [{ label: "itch.io でプレイ", url: "https://luvbytes404.itch.io/borrowed-skin-moonmoss" }]
+    links: [{ label: "itch.io でプレイ", url: "https://luvbytes404.itch.io/borrowed-skin-moonmoss" }],
+    en: {
+      category: "Game jam entry (Brackeys Game Jam 2026.2)",
+      description: "A first-person narrative horror game. Role: sound effects (SFX). Credited as SoMok0617.",
+      links: [{ label: "Play on itch.io", url: "https://luvbytes404.itch.io/borrowed-skin-moonmoss" }]
+    }
   }
 ];

@@ -32,6 +32,14 @@ EDITING.md            ← 이 파일
 - About의 「使用ツール」 목록은 `data/site.js`의 `tools: [...]`에서 바꿔요. 비워두면(`[]`) 그 줄이 사라져요.
 - 「受賞歴」은 `data/site.js`의 `awards: [...]`에서 추가·수정해요. `{ title: "상 이름", detail: "작품명 등" }` 한 줄씩이고, 위에 쓴 것부터 표시돼요. 연도를 보이고 싶으면 `year: "2027"`을 추가하면 돼요.
 
+## 영어 페이지 (`en/index.html`)
+
+- 일본어 페이지(`index.html`)와 같은 CSS·스크립트·데이터를 공유하고, 영어 문구만 따로 있어요. 주소는 `https://somoks1.github.io/en/`예요.
+- 작품의 영어 텍스트는 `data/works.js`의 작품 덩어리 안 `en: { ... }`에 써요. `category`, `description`, `tags`, `links`, `details`, `role`처럼 영어로 바꾸고 싶은 항목만 쓰면 되고, 안 쓴 항목은 일본어 그대로 나와요. 작품을 추가할 때는 `en`도 같이 채워 주세요.
+- 소개 문구(About)와 Contact 문구는 `en/index.html`에서 직접 고쳐요.
+- 수상 경력(Awards)은 일본어 페이지에만 있어요.
+- 이메일·링크·사용 툴은 `data/site.js`를 같이 써서, 한 번 고치면 두 페이지에 모두 반영돼요.
+
 ## 소개 문구 / 이메일 / 링크 바꾸기
 
 - 소개 문구: `index.html`의 `About` 부분

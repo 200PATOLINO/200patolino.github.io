@@ -299,3 +299,10 @@ html.modal-open { overflow: hidden; }
   .card, .media-video::after, .media-thumb, .play { transition: none; }
   .card:hover, .card:focus-within, .card:hover .media-thumb, .card:focus-within .media-thumb, .card:hover .play, .card:focus-within .play { transform: none; }
 }
+
+/* ---------- Language switch ---------- */
+.nav a.lang-switch {
+  color: var(--accent); border: 1px solid currentColor; border-radius: 999px;
+  padding: 0 12px; line-height: 1.7;
+}
+.nav a.lang-switch:hover { color: var(--text); }

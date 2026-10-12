@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEONGMIN SOUND | Game Sound Designer</title>
+  <meta name="description" content="Portfolio of Seongmin Lee, an aspiring game sound designer in Tokyo. Sound design work centered on sound effects (SFX).">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://somoks1.github.io/en/">
+  <link rel="alternate" hreflang="ja" href="https://somoks1.github.io/">
+  <link rel="alternate" hreflang="en" href="https://somoks1.github.io/en/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SEONGMIN SOUND | Game Sound Designer">
+  <meta property="og:description" content="Every sound, by design. A portfolio of game sound design work centered on SFX.">
+  <meta property="og:url" content="https://somoks1.github.io/en/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Cpath d='M6 16h2M11 10v12M16 6v20M21 11v10M26 14v4' stroke='%23ecd06f' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261012l">
+</head>
+<body>
+  <canvas class="bg-wave" id="bg-wave" aria-hidden="true" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top">SEONGMIN <span>SOUND</span></a>
+      <nav class="nav" aria-label="Main menu">
+        <a href="#about">About</a>
+        <a href="#works">Works</a>
+        <a href="#contact">Contact</a>
+        <a class="lang-switch" href="../" hreflang="ja" lang="ja">日本語</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Lee Seongmin<span>Game Sound Designer, Tokyo</span></p>
+        <h1 lang="en">Every sound,<br>by design.</h1>
+        <div class="hero-actions">
+          <a class="btn" href="#works">View works</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+        <p class="status">Graduating in March 2028. Open to new-graduate opportunities.</p>
+      </div>
+    </section>
+
+    <div class="anchor" id="about"></div>
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">About<span>Profile</span></h2>
+        <div class="about">
+          <div class="about-text">
+            <p class="about-lead">I'm Seongmin Lee.<br>I'm aiming to become a sound designer, focused on sound effects (SFX), who brings game worlds to life through sound.</p>
+            <p>I'm from Korea. I studied vocals at an arts high school, then performed live and learned composition after graduating. After my military service, I kept composing mainly on commission from 2020, and moved to Japan in 2026.</p>
+            <p>At HAL Tokyo I discovered sound design. I was drawn to how a single sound can change the atmosphere of a scene and pull players into the story. I'm now studying with a focus on sound effects, with the goal of becoming a game sound designer.</p>
+            <ol class="timeline" aria-label="Background">
+              <li><span class="tl-year">2015</span><span class="tl-text">Graduated from a Korean arts high school (vocal major)</span></li>
+              <li><span class="tl-year">2016–2018</span><span class="tl-text">Live performances, studied composition</span></li>
+              <li><span class="tl-year">2018–2020</span><span class="tl-text">Military service</span></li>
+              <li><span class="tl-year">2020–2025</span><span class="tl-text">Composing, mainly on commission</span></li>
+              <li><span class="tl-year">2026</span><span class="tl-text">Moved to Japan, entered HAL Tokyo (Music Department)</span></li>
+              <li><span class="tl-year">2028</span><span class="tl-text">Expected graduation</span></li>
+            </ol>
+          </div>
+          <dl class="facts">
+            <div><dt>School</dt><dd>HAL Tokyo, Music Department</dd></div>
+            <div><dt>Graduation</dt><dd>March 2028</dd></div>
+            <div><dt>Goal</dt><dd>Sound Designer</dd></div>
+            <div id="tools-row" hidden><dt>Tools</dt><dd><ul class="tool-list" id="tool-list"></ul></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <div class="anchor" id="works"></div>
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">Works<span>Selected projects</span></h2>
+        <div class="filter" id="works-filter"></div>
+        <div class="grid" id="works-grid"></div>
+        <noscript><p class="empty">Please enable JavaScript to view the works.</p></noscript>
+      </div>
+    </section>
+
+    <div class="anchor" id="contact"></div>
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">Contact<span>Get in touch</span></h2>
+        <p class="contact-lead">For work inquiries and other messages, please email me.</p>
+        <p class="contact-mail"><a id="contact-mail" href="mailto:leeseongmin1996@gmail.com">leeseongmin1996@gmail.com</a></p>
+        <ul class="link-list" id="contact-links"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">&copy; <span id="year">2026</span> SEONGMIN SOUND</div>
+  </footer>
+
+  <script src="../data/site.js?v=20261012l" defer></script>
+  <script src="../data/works.js?v=20261012l" defer></script>
+  <script src="../assets/js/wave-bg.js?v=20261012l" defer></script>
+  <script src="../assets/js/main.js?v=20261012l" defer></script>
+  <script src="../assets/js/stack.js?v=20261012l" defer></script>
+</body>
+</html>
