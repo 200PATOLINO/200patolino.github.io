@@ -16,10 +16,10 @@
  */
 window.WORKS = [
   {
-    title: "BlackDesertSkillSound制作",
-    category: "ゲーム映像 サウンドリデザイン",
+    title: "Game Skill Redesign",
+    category: "ゲーム映像 サウンドリデザイン (黒い砂漠)",
     year: "2026",
-    description: "LogicPro ,Soundly,Splice使用、制作期間１週間",
+    description: "使用ツール:Logic Pro。ライブラリ:Soundly、Splice。制作期間1週間。",
     tags: ["SFX", "Skill"],
     media: { type: "youtube", id: "-uvS4SlQrh0" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
@@ -28,7 +28,7 @@ window.WORKS = [
     title: "BIFSC提出作",
     category: "映像 サウンドリデザイン",
     year: "2026",
-    description: "LogicPro ,Soundly ,Splice、自分のFoley使用、制作期間1月間",
+    description: "使用ツール:Logic Pro。ライブラリ:Soundly、Splice。自分で収録したFoleyも使用。制作期間1か月。",
     tags: ["SFX", "短編映像"],
     media: { type: "youtube", id: "zdIdv4i0clI" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
