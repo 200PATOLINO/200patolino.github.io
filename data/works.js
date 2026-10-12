@@ -21,7 +21,7 @@ window.WORKS = [
     year: "2026",
     description: "使用ツールや担当範囲などを、1〜2行で書いてください。",
     tags: ["SFX"],
-    media: { type: "youtube", id: "" },
+    media: { type: "youtube", id: "-uvS4SlQrh0" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   },
   {
