@@ -308,9 +308,13 @@ html.modal-open { overflow: hidden; }
 .nav a.lang-switch:hover { color: var(--text); }
 
 /* ---------- ページ送り(assets/js/pages.js) ---------- */
-/* 1画面ずつ「ぴたっ」と切り替わる。途中で止まったときだけ、近いページに吸着する(強制ではない) */
-html { scroll-snap-type: y proximity; }
-main > section { scroll-snap-align: start; }
+/* マウス・トラックパッド・キーボードでは、少しスクロールするだけで次(前)のページまで自動で滑って切り替わる(assets/js/pages.js)。
+   画面より長いページ(作品)は、その中を自由にスクロールでき、端まで来ると次のページへ切り替わる。
+   タッチ操作の端末では、ブラウザ標準の吸着(近くのページにぴたっと止まる)を使う */
+@media (pointer: coarse) {
+  html { scroll-snap-type: y proximity; }
+  main > section { scroll-snap-align: start; }
+}
 .site-footer { scroll-snap-align: end; }
 
 /* 右端のページ点(広い画面のみ) */

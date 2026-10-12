@@ -77,6 +77,106 @@
   window.addEventListener("resize", updatePager);
   updatePager();
 
+  /* ---------- 自動ページ送り(マウス・トラックパッド・キーボード) ---------- */
+  // 少し回すだけで、次(前)のページまで「すっ」と滑って切り替わる。
+  // 画面より長いページ(作品)は、中では普通にスクロールでき、端まで来たら次のページへ。
+  if (!reduceMotion && window.matchMedia && window.matchMedia("(pointer: fine)").matches) initAutoPaging();
+
+  function initAutoPaging() {
+    var DURATION = 760;   // 切り替わりにかかる時間(ミリ秒)
+    var animating = false;
+    var lockUntil = 0;    // 慣性スクロールで続けて何ページも飛ばないように、入力を受け付けない期限
+    var raf = 0;
+
+    function header() { var h = document.querySelector(".site-header"); return h ? h.offsetHeight : 56; }
+
+    function metrics() {
+      var vh = window.innerHeight, hh = header(), y = window.pageYOffset;
+      var maxScroll = Math.max(document.documentElement.scrollHeight - vh, 0);
+      var list = sections.map(function (s, i) {
+        var T = Math.min(Math.round(s.getBoundingClientRect().top + y - hh), maxScroll); // ページの先頭
+        // ページの終わり(内容の下端が画面の下に来る位置)。下の余白は内容ではないので、24px だけ残して無視する
+        var pad = Math.max((parseFloat(getComputedStyle(s).paddingBottom) || 0) - 24, 0);
+        var E = Math.max(T, T + s.offsetHeight - pad - (vh - hh));
+        if (i === sections.length - 1) E = maxScroll;
+        return { T: T, E: Math.min(E, maxScroll) };
+      });
+      return { y: y, vh: vh, maxScroll: maxScroll, list: list };
+    }
+
+    function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+    function animateTo(target) {
+      cancelAnimationFrame(raf);
+      var start = window.pageYOffset, dist = target - start;
+      if (Math.abs(dist) < 1) { animating = false; return; }
+      animating = true;
+      var html = document.documentElement;
+      html.style.scrollBehavior = "auto";
+      var t0 = performance.now();
+      (function step(now) {
+        var p = Math.min((now - t0) / DURATION, 1);
+        window.scrollTo({ top: start + dist * ease(p), behavior: "instant" });
+        if (p < 1) { raf = requestAnimationFrame(step); return; }
+        animating = false;
+        html.style.scrollBehavior = "";
+        lockUntil = performance.now() + 180;
+      })(t0);
+    }
+
+    // 入力(dy: 下が正)に対して、どうするか。null = ブラウザ標準のスクロールに任せる
+    function decide(dy) {
+      var m = metrics(), y = m.y, last = sections.length - 1, i = 0;
+      for (var k = 0; k <= last; k++) if (m.list[k].T <= y + 2) i = k;
+      var P = m.list[i];
+      if (dy > 0) {
+        if (y >= P.E - 1) return i < last ? m.list[i + 1].T : null;
+        return (y + dy < P.E) ? null : P.E;
+      }
+      if (y > P.E + 1) return P.E;
+      if (y > P.T + 1) return (y + dy > P.T) ? null : P.T;
+      return i > 0 ? m.list[i - 1].E : null;
+    }
+
+    function handle(dy, e) {
+      var now = performance.now();
+      if (animating || now < lockUntil) {
+        e.preventDefault();
+        if (!animating) lockUntil = Math.max(lockUntil, now + 160); // 慣性が続いている間は受け付けない
+        return;
+      }
+      var target = decide(dy);
+      if (target == null) return;
+      e.preventDefault();
+      animateTo(target);
+    }
+
+    function blocked() { return root.classList.contains("modal-open"); }
+
+    window.addEventListener("wheel", function (e) {
+      if (e.ctrlKey || blocked()) return;
+      var dy = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY;
+      if (Math.abs(e.deltaX) > Math.abs(dy) || Math.abs(dy) < 2) return;
+      handle(dy, e);
+    }, { passive: false });
+
+    window.addEventListener("keydown", function (e) {
+      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || blocked()) return;
+      var t = e.target, tag = t && t.tagName;
+      if (tag && (/^(INPUT|TEXTAREA|SELECT)$/.test(tag) || t.isContentEditable)) return;
+      var vh = window.innerHeight, dy = 0;
+      if (e.key === " " && /^(BUTTON|A)$/.test(tag || "")) return; // ボタンの決定キーはそのまま
+      if (e.key === "PageDown" || (e.key === " " && !e.shiftKey)) dy = vh * 0.85;
+      else if (e.key === "PageUp" || (e.key === " " && e.shiftKey)) dy = -vh * 0.85;
+      else if (e.key === "ArrowDown") dy = 80;
+      else if (e.key === "ArrowUp") dy = -80;
+      else if (e.key === "Home") { e.preventDefault(); animateTo(0); return; }
+      else if (e.key === "End") { e.preventDefault(); animateTo(metrics().maxScroll); return; }
+      else return;
+      handle(dy, e);
+    });
+  }
+
   if (!canAnimate) return;
 
   /* ---------- 入場アニメーションの対象を決める ---------- */
