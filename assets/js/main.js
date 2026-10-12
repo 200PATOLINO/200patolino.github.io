@@ -249,7 +249,9 @@
     var filterBox = document.getElementById("works-filter");
     if (!grid) return;
 
-    var works = (window.WORKS || []).map(localize);
+    var works = (window.WORKS || [])
+      .filter(function (w) { return w && !w.draft; })
+      .map(localize);
     if (!works.length) {
       grid.appendChild(el("p", "empty", T.empty));
       return;
