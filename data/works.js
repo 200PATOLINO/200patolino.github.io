@@ -20,7 +20,7 @@ window.WORKS = [
     category: "ゲーム映像 サウンドリデザイン",
     year: "2026",
     description: "LogicPro ,Soundly,Splice使用、制作期間１週間",
-    tags: ["SFX"],["Skill"],
+    tags: ["SFX", "Skill"],
     media: { type: "youtube", id: "-uvS4SlQrh0" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   },
@@ -29,7 +29,7 @@ window.WORKS = [
     category: "映像 サウンドリデザイン",
     year: "2026",
     description: "LogicPro ,Soundly ,Splice、自分のFoley使用、制作期間1月間",
-    tags: ["SFX"],["短編映像"]
+    tags: ["SFX", "短編映像"],
     media: { type: "youtube", id: "zdIdv4i0clI" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   },
