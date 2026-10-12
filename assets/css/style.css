@@ -54,12 +54,29 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* 波形はページ全体の固定背景(assets/js/wave-bg.js)。前面のコンテンツは z-index で上に重ねる */
 .bg-wave { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; pointer-events: none; }
 main, .site-footer { position: relative; z-index: 1; }
-.hero { min-height: calc(100svh - 56px); padding: clamp(48px, 10vh, 104px) 0 48px; }
-.eyebrow { color: var(--accent); font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; margin-bottom: 14px; }
+.hero { display: flex; flex-direction: column; min-height: calc(100svh - 56px); padding: clamp(48px, 10vh, 104px) 0 48px; }
+.hero-inner { display: flex; flex-direction: column; flex: 1; width: 100%; }
+.eyebrow {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px;
+  color: var(--text); font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: 0.03em; margin-bottom: 22px;
+}
+.eyebrow span { color: var(--accent); font-weight: 700; font-size: 0.9rem; }
 .hero h1 {
   font-size: clamp(2.3rem, 7.2vw, 5rem); line-height: 1.22; font-weight: 900; letter-spacing: 0.01em;
 }
-.lead { color: var(--muted); margin-top: 20px; max-width: 30em; font-size: 1rem; }
+.lead { color: var(--body); margin-top: 24px; max-width: 28em; font-size: 1.05rem; line-height: 1.9; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.92rem; padding: 11px 24px; border-radius: 999px;
+  color: var(--bg); background: var(--accent); border: 1px solid var(--accent);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn:hover { text-decoration: none; background: #f4dd8f; border-color: #f4dd8f; }
+.btn-ghost { color: var(--text); background: transparent; border-color: var(--line); }
+.btn-ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+.status { margin-top: auto; padding-top: 40px; color: var(--muted); font-size: 0.82rem; display: flex; align-items: center; gap: 10px; }
+.status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(236, 208, 111, 0.15); flex-shrink: 0; margin-left: 4px; }
 
 /* ---------- Sections ---------- */
 .section { padding: 88px 0 72px; border-top: 1px solid var(--line); background: var(--bg); }
