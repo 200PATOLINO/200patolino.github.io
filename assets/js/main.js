@@ -317,7 +317,7 @@
     if (!items.length) { section.hidden = true; return; }
     items.forEach(function (a) {
       var li = el("li", "award");
-      li.appendChild(el("span", "award-year", a.year || ""));
+      if (a.year) { li.classList.add("has-year"); li.appendChild(el("span", "award-year", a.year)); }
       var body = el("div", "award-body");
       body.appendChild(el("p", "award-title", a.title));
       if (a.detail) body.appendChild(el("p", "award-detail", a.detail));
