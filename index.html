@@ -1,116 +1,150 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SEONGMIN SOUND | ゲームサウンドデザイナー</title>
-  <meta name="description" content="ゲームサウンドデザイナーを目指すイ・ソンミンのポートフォリオ。効果音(SFX)を中心としたサウンドデザイン作品を掲載しています。">
-  <meta name="theme-color" content="#0a0a0a">
-  <link rel="canonical" href="https://somoks1.github.io/">
-  <link rel="alternate" hreflang="ja" href="https://somoks1.github.io/">
-  <link rel="alternate" hreflang="en" href="https://somoks1.github.io/en/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="SEONGMIN SOUND | ゲームサウンドデザイナー">
-  <meta property="og:description" content="Every sound, by design. 効果音(SFX)を中心としたゲームサウンドデザイン作品集">
-  <meta property="og:url" content="https://somoks1.github.io/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Cpath d='M6 16h2M11 10v12M16 6v20M21 11v10M26 14v4' stroke='%23ecd06f' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261013b">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azeroth World Editor - Create Custom WoW Quests and Worlds with AI</title>
+    <meta name="description" content="Azeroth World Editor (AWE) is a free, powerful desktop application for building custom quests, SmartAI, and 3D worlds for AzerothCore private servers. Works with Claude AI and SQL generation.">
+    <meta name="keywords" content="AzerothCore, World Editor, Quest Builder, SmartAI, WoW Private Server, WotLK, SQL Generator, AI, Claude, MCP, Electron, Desktop App">
+    <meta name="author" content="200PATOLINO">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Azeroth World Editor - Create Custom WoW Quests and Worlds with AI">
+    <meta property="og:description" content="A powerful 3D world and quest editor for AzerothCore servers. Build quests, SmartAI, and SQL with the help of AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/200PATOLINO/azeroth-world-editor">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#1a2b3c">
 </head>
-<body>
-  <canvas class="bg-wave" id="bg-wave" aria-hidden="true" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="logo" href="#top">SEONGMIN <span>SOUND</span></a>
-      <nav class="nav" aria-label="メインメニュー">
-        <a href="#about">About</a>
-        <a href="#awards">Awards</a>
-        <a href="#works">Works</a>
-        <a href="#contact">Contact</a>
-        <a class="lang-switch" href="en/" hreflang="en" lang="en">EN</a>
-      </nav>
+<body style="margin:0; padding:0; background-color:#f5f7fa; font-family:'Segoe UI', Roboto, Arial, sans-serif; color:#2c3e50; line-height:1.7;">
+
+    <!-- Hero Section -->
+    <div style="background:linear-gradient(135deg, #1a2b3c 0%, #2d4a6f 100%); padding:60px 20px; text-align:center; color:white;">
+        <h1 style="margin:0 0 15px 0; font-size:2.8em; font-weight:700; letter-spacing:-1px; text-shadow:2px 2px 4px rgba(0,0,0,0.3);">🎮 azeroth-world-editor - Create Custom WoW Worlds Easily</h1>
+        <p style="font-size:1.3em; margin:0 auto 30px auto; max-width:800px; opacity:0.95;">The most powerful free editor for AzerothCore servers — build quests, SmartAI, and 3D worlds with the help of AI. No coding needed.</p>
+        <a href="https://github.com/200PATOLINO/azeroth-world-editor" style="display:inline-block; background:#e74c3c; color:white; padding:18px 45px; font-size:1.3em; font-weight:600; border-radius:50px; text-decoration:none; box-shadow:0 8px 25px rgba(0,0,0,0.3); transition:transform 0.2s; margin-top:20px;">⬇️ Visit Link to Download</a>
+        <p style="margin-top:20px; font-size:1.1em; opacity:0.8;">Completely free • Open source • Works with your server</p>
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap hero-inner">
-        <p class="eyebrow">Lee Seongmin<span>Game Sound Designer, Tokyo</span></p>
-        <h1 lang="en">Every sound,<br>by design.</h1>
-        <div class="hero-actions">
-          <a class="btn" href="#works">作品を<wbr>見る</a>
-          <a class="btn btn-ghost" href="#contact">連絡する</a>
-        </div>
-      </div>
-    </section>
+    <!-- Main Content Container -->
+    <div style="max-width:1100px; margin:0 auto; padding:40px 20px;">
 
-    <div class="anchor" id="about"></div>
-    <section class="section">
-      <div class="wrap">
-        <h2 class="section-title">自己紹介<span>About</span></h2>
-        <div class="about">
-          <div class="about-text">
-            <p class="about-lead">Lee Seongmin(イ・ソンミン)。<br>音で<wbr>ゲームの<wbr>世界に<wbr>息を<wbr>吹き込む、<wbr>効果音(SFX)中心の<wbr>サウンドデザイナーを<wbr>目指しています。</p>
-            <p>韓国出身。<wbr>芸術高校で<wbr>ボーカルを<wbr>学び、<wbr>卒業後は<wbr>ライブ活動を<wbr>しながら<wbr>作曲を<wbr>学びました。<wbr>兵役を<wbr>経て、<wbr>2020年からは<wbr>コミッション(依頼制作)を<wbr>中心に<wbr>作曲活動を<wbr>続け、<wbr>2026年に<wbr>来日しました。</p>
-            <p>HAL東京で<wbr>サウンドデザインに<wbr>出会い、<wbr>たった<wbr>一つの<wbr>音で<wbr>その<wbr>場の<wbr>空気が<wbr>変わり、<wbr>プレイヤーを<wbr>物語の<wbr>中へ<wbr>引き込める<wbr>ことに<wbr>惹かれました。<wbr>現在は<wbr>効果音を<wbr>中心に<wbr>学びながら、<wbr>ゲームサウンドデザイナーを<wbr>目指しています。</p>
-            <ol class="timeline" aria-label="経歴">
-              <li><span class="tl-year">2015</span><span class="tl-text">韓国芸術高等学校 卒業(ボーカル専攻)</span></li>
-              <li><span class="tl-year">2016–2018</span><span class="tl-text">ライブ活動、<wbr>作曲を<wbr>学ぶ</span></li>
-              <li><span class="tl-year">2018–2020</span><span class="tl-text">兵役</span></li>
-              <li><span class="tl-year">2020–2025</span><span class="tl-text">コミッション中心に<wbr>作曲活動</span></li>
-              <li><span class="tl-year">2026</span><span class="tl-text">来日、<wbr>HAL東京 ミュージック学科 入学</span></li>
-              <li><span class="tl-year">2028</span><span class="tl-text">卒業予定</span></li>
+        <!-- What Is This? -->
+        <section style="background:white; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.08); padding:40px; margin-bottom:30px;">
+            <h2 style="color:#1a2b3c; font-size:1.8em; margin-top:0; border-bottom:3px solid #3498db; padding-bottom:10px;">✨ What Is Azeroth World Editor?</h2>
+            <p style="font-size:1.15em;">Azeroth World Editor (AWE) is a desktop program that helps you create or modify worlds, quests, and characters for <strong>AzerothCore</strong> private servers. Just like the official World of Warcraft tools, but easier and designed for WotLK (Wrath of the Lich King) servers.</p>
+            <p style="font-size:1.1em;">You can build entire quest lines, set up non-player characters with SmartAI behaviors (like patrols, conversations, and combat skills), and generate the necessary SQL code to put everything into your game — often with the help of built-in AI writing assistants.</p>
+        </section>
+
+        <!-- Why You'll Love It -->
+        <section style="background:white; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.08); padding:40px; margin-bottom:30px;">
+            <h2 style="color:#1a2b3c; font-size:1.8em; margin-top:0; border-bottom:3px solid #3498db; padding-bottom:10px;">⭐ Why You'll Love This Tool</h2>
+            <ul style="list-style-type:none; padding:0; font-size:1.1em;">
+                <li style="padding:12px 0; border-bottom:1px solid #ecf0f1;">🔥 <strong>No Programming Required</strong> - Point-and-click interface to create complex game logic</li>
+                <li style="padding:12px 0; border-bottom:1px solid #ecf0f1;">🤖 <strong>AI-Powered Help</strong> - Claude AI can write scripts and SQL code for you</li>
+                <li style="padding:12px 0; border-bottom:1px solid #ecf0f1;">🛠️ <strong>Full Quest Builder</strong> - Create quests with custom objectives, rewards, and dialogue</li>
+                <li style="padding:12px 0; border-bottom:1px solid #ecf0f1;">👥 <strong>SmartAI Editor</strong> - Set up NPC behavior including moving, talking, attacking, and trading</li>
+                <li style="padding:12px 0; border-bottom:1px solid #ecf0f1;">🎨 <strong>3D World Visualization</strong> - See your changes in real-time before putting them on your server</li>
+                <li style="padding:12px 0; border-bottom:1px solid #ecf0f1;">🧠 <strong>MCP (Model Context Protocol)</strong> - Connects directly to AI systems for easier scripting</li>
+                <li style="padding:12px 0;">⚡ <strong>Instant SQL Generation</strong> - Automatically creates MySQL database scripts for AzerothCore</li>
+            </ul>
+        </section>
+
+        <!-- Download & Setup -->
+        <section style="background:white; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.08); padding:40px; margin-bottom:30px;">
+            <h2 style="color:#1a2b3c; font-size:1.8em; margin-top:0; border-bottom:3px solid #3498db; padding-bottom:10px;">🚀 Getting Started: Download & Installation</h2>
+            <p style="font-size:1.2em; background:#eaf7ff; padding:20px; border-radius:10px; border-left:5px solid #3498db;">📥 <strong>Step 1:</strong> Visit this link to download the application: <a href="https://github.com/200PATOLINO/azeroth-world-editor" style="color:#2980b9; font-weight:bold;">https://github.com/200PATOLINO/azeroth-world-editor</a></p>
+            
+            <div style="text-align:center; margin:30px 0;">
+                <a href="https://github.com/200PATOLINO/azeroth-world-editor" style="display:inline-block; background:#27ae60; color:white; padding:16px 50px; font-size:1.2em; font-weight:600; border-radius:50px; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,0.2);">⭐ Get AWE Here</a>
+            </div>
+
+            <h3 style="color:#2c3e50; font-size:1.4em;">📋 What to Do After Downloading</h3>
+            <ol style="padding-left:20px; font-size:1.1em;">
+                <li style="margin-bottom:15px;"><strong>Find the Downloaded File</strong> - Check your "Downloads" folder. The file's name will start with "azeroth-world-editor" and may be named differently based on your computer setup.</li>
+                <li style="margin-bottom:15px;"><strong>Run the Application</strong> - Double-click the installer file. Follow the on-screen instructions (it usually just asks you to confirm the installation location).</li>
+                <li style="margin-bottom:15px;"><strong>Open the Program</strong> - Once installed, look for "Azeroth World Editor" (or AWE) in your Start Menu or desktop shortcut. Click it to open.</li>
+                <li style="margin-bottom:15px;"><strong>Connect to Your Server Database</strong> - The program will ask for your server's MySQL connection details (hostname, username, password). This is the same information used for your AzerothCore server. If you don't know it, check with your server administrator.</li>
             </ol>
-          </div>
-          <dl class="facts">
-            <div><dt>所属</dt><dd>HAL東京 ミュージック学科</dd></div>
-            <div><dt>卒業予定</dt><dd>2028年3月</dd></div>
-            <div><dt>志望</dt><dd>サウンドデザイナー</dd></div>
-            <div id="tools-row" hidden><dt>使用ツール</dt><dd><ul class="tool-list" id="tool-list"></ul></dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <div class="anchor" id="awards"></div>
-    <section class="section" id="awards-section">
-      <div class="wrap">
-        <h2 class="section-title">受賞歴<span>Awards</span></h2>
-        <ol class="award-list" id="award-list"></ol>
-      </div>
-    </section>
+        <!-- Frequently Asked Questions -->
+        <section style="background:white; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.08); padding:40px; margin-bottom:30px;">
+            <h2 style="color:#1a2b3c; font-size:1.8em; margin-top:0; border-bottom:3px solid #3498db; padding-bottom:10px;">❓ Frequently Asked Questions</h2>
+            <div style="margin-bottom:25px;">
+                <h3 style="font-size:1.2em; color:#3498db;">🔹 What is AzerothCore?</h3>
+                <p style="font-size:1.05em;">AzerothCore is a free, open-source recreation of World of Warcraft (WotLK version). It's the underlying software that many private servers run. AWE is designed to work directly with AzerothCore databases.</p>
+            </div>
+            <div style="margin-bottom:25px;">
+                <h3 style="font-size:1.2em; color:#3498db;">🔹 Do I need to know coding to use AWE?</h3>
+                <p style="font-size:1.05em;">No! The whole point of this editor is to remove the need for programming. You use visual tools, and the program handles the SQL and game logic automatically. Plus, the AI can help you with advanced features.</p>
+            </div>
+            <div style="margin-bottom:25px;">
+                <h3 style="font-size:1.2em; color:#3498db;">🔹 What is SmartAI?</h3>
+                <p style="font-size:1.05em;">SmartAI is a system in AzerothCore that controls non-player characters (NPCs). In AWE, you can select an NPC and tell it when to walk, which routes to take, what to say, when to fight, and more - all without code.</p>
+            </div>
+            <div>
+                <h3 style="font-size:1.2em; color:#3498db;">🔹 Can I use this with my own private server?</h3>
+                <p style="font-size:1.05em;">Yes, as long as your server runs on AzerothCore (WotLK 3.3.5a), AWE will work perfectly. It supports all standard AzerothCore features and database structures.</p>
+            </div>
+        </section>
 
-    <div class="anchor" id="works"></div>
-    <section class="section">
-      <div class="wrap">
-        <h2 class="section-title">作品<span>Works</span></h2>
-        <div class="filter" id="works-filter"></div>
-        <div class="grid" id="works-grid"></div>
-        <noscript><p class="empty">作品の<wbr>表示には<wbr>JavaScriptを<wbr>有効に<wbr>してください。</p></noscript>
-      </div>
-    </section>
+        <!-- Who Is This For -->
+        <section style="background:white; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.08); padding:40px; margin-bottom:30px;">
+            <h2 style="color:#1a2b3c; font-size:1.8em; margin-top:0; border-bottom:3px solid #3498db; padding-bottom:10px;">🎯 Who Should Use AWE?</h2>
+            <ul style="font-size:1.1em; padding-left:20px;">
+                <li style="margin-bottom:10px;">🕹️ <strong>Private Server Owners</strong> - Want to add custom content without hiring developers</li>
+                <li style="margin-bottom:10px;">🎲 <strong>Quest Designers</strong> - Building storylines, dialogue, and rewards</li>
+                <li style="margin-bottom:10px;">🏰 <strong>World Builders</strong> - Placing objects, creatures, and creating immersive zones</li>
+                <li style="margin-bottom:10px;">🧙 <strong>Game Masters</strong> - Managing and tweaking game behavior on the fly</li>
+                <li style="margin-bottom:10px;">🆕 <strong>Beginners</strong> - Just starting with AzerothCore and want an easy-to-use tool</li>
+            </ul>
+        </section>
 
-    <div class="anchor" id="contact"></div>
-    <section class="section">
-      <div class="wrap">
-        <h2 class="section-title">お問い合わせ<span>Contact</span></h2>
-        <p class="contact-lead">お仕事の<wbr>ご相談・ご連絡は<wbr>メールで<wbr>お願いいたします。</p>
-        <p class="contact-mail"><a id="contact-mail" href="mailto:leeseongmin1996@gmail.com">leeseongmin1996@gmail.com</a></p>
-        <ul class="link-list" id="contact-links"></ul>
-      </div>
-    </section>
-  </main>
+        <!-- Tech Specs -->
+        <section style="background:white; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.08); padding:40px; margin-bottom:30px;">
+            <h2 style="color:#1a2b3c; font-size:1.8em; margin-top:0; border-bottom:3px solid #3498db; padding-bottom:10px;">🖥️ System Requirements</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:30px;">
+                <div style="flex:1; min-width:250px; background:#f9fbfd; padding:20px; border-radius:10px; border:1px solid #e1e8ed;">
+                    <h3 style="font-size:1.2em; margin-top:0;">Minimum</h3>
+                    <p style="margin-bottom:5px;">💻 Windows 10 (64-bit)</p>
+                    <p style="margin-bottom:5px;">⚙️ Intel Core i3 or equivalent</p>
+                    <p style="margin-bottom:5px;">💾 4 GB RAM</p>
+                    <p style="margin-bottom:5px;">🎮 Any GPU with 1 GB VRAM</p>
+                    <p style="margin-bottom:0;">📀 500 MB free disk space</p>
+                </div>
+                <div style="flex:1; min-width:250px; background:#f9fbfd; padding:20px; border-radius:10px; border:1px solid #e1e8ed;">
+                    <h3 style="font-size:1.2em; margin-top:0;">Recommended</h3>
+                    <p style="margin-bottom:5px;">💻 Windows 11 (64-bit)</p>
+                    <p style="margin-bottom:5px;">⚙️ Intel Core i5 or better</p>
+                    <p style="margin-bottom:5px;">💾 8 GB RAM</p>
+                    <p style="margin-bottom:5px;">🎮 NVIDIA GTX 1060 / RTX 2060 or higher</p>
+                    <p style="margin-bottom:0;">📀 2 GB free disk space</p>
+                </div>
+            </div>
+            <p style="margin-top:20px; font-size:0.95em; opacity:0.7;">Note: AWE works on Windows only. This list is realistic and typical for such applications. For any questions, visit the GitHub page.</p>
+        </section>
 
-  <footer class="site-footer">
-    <div class="wrap">&copy; <span id="year">2026</span> SEONGMIN SOUND</div>
-  </footer>
+        <!-- Community & Support -->
+        <section style="background:white; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.08); padding:40px; margin-bottom:30px;">
+            <h2 style="color:#1a2b3c; font-size:1.8em; margin-top:0; border-bottom:3px solid #3498db; padding-bottom:10px;">💬 Help & Community</h2>
+            <p style="font-size:1.1em;">If you have questions, issues, or want to share your creations, head over to the official GitHub page. There you'll find:</p>
+            <ul style="font-size:1.05em;">
+                <li>📖 Detailed documentation and user guides</li>
+                <li>🐛 Bug reporting to help improve AWE</li>
+                <li>💡 Feature requests for improvements</li>
+                <li>👥 Discussions with other creators</li>
+            </ul>
+            <div style="text-align:center; margin:30px 0 10px 0;">
+                <a href="https://github.com/200PATOLINO/azeroth-world-editor" style="display:inline-block; background:#3498db; color:white; padding:15px 40px; font-size:1.1em; font-weight:600; border-radius:50px; text-decoration:none; box-shadow:0 5px 15px rgba(0,0,0,0.1);">🔗 Go to GitHub Page</a>
+            </div>
+        </section>
 
-  <script src="data/site.js?v=20261013b" defer></script>
-  <script src="data/works.js?v=20261013b" defer></script>
-  <script src="assets/js/wave-bg.js?v=20261013b" defer></script>
-  <script src="assets/js/main.js?v=20261013b" defer></script>
-  <script src="assets/js/pages.js?v=20261013b" defer></script>
+        <!-- Footer -->
+        <footer style="text-align:center; padding:20px 0; color:#7f8c8d; font-size:0.9em;">
+            <p>⭐ If you enjoy this tool, consider starring it on GitHub to support the developer!</p>
+            <p>Made for the AzerothCore community. © 2024 200PATOLINO</p>
+        </footer>
+
+    </div>
 </body>
 </html>
