@@ -15,8 +15,12 @@
  * en    : 英語ページ用の上書き。category / description / tags / links などを英語で書けます(書かない項目は日本語のまま)。
  * draft : true を書いた作品は、サイトに表示されません(準備用の空き枠)。公開するときは draft の行を消すだけです。
  * 並び順: 配列の上から順に表示されます。受賞作・自信作を上に置いてください(3列表示なので6件でちょうど2段)。
+ * en.order : 英語ページだけの並び順。en: { order: 1 } と書いた作品が先頭に来ます(日本語ページには影響しません)。
+ * SHOW_DRAFTS : 下の window.SHOW_DRAFTS を true にすると draft の空き枠も表示されます(デザイン確認用)。公開前に false に戻してください。
  * tags  : 作品が7件以上になると、タグでの絞り込みボタンが自動で表示されます。
  */
+window.SHOW_DRAFTS = true; // ← デザイン確認中は true。人に見せる前に false にすると空き枠が隠れます
+
 window.WORKS = [
   /* ---- 1〜2 : 受賞・入賞作(最初に見てもらう枠) ---- */
   {
@@ -44,6 +48,7 @@ window.WORKS = [
     en: {
       category: "Film sound redesign (Berlin International Sound Design Competition)",
       description: "Tools: Logic Pro. Libraries: Soundly, Splice. Also used Foley I recorded myself. Production time: 1 month.",
+      order: 1, // 英語ページでは先頭に表示
       tags: ["SFX", "Short film", "Finalist"],
       links: [{ label: "Production notes (PDF)", url: "" }]
     }

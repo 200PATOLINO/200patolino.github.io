@@ -250,8 +250,15 @@
     if (!grid) return;
 
     var works = (window.WORKS || [])
-      .filter(function (w) { return w && !w.draft; })
+      .filter(function (w) { return w && (!w.draft || window.SHOW_DRAFTS); })
       .map(localize);
+    // 英語ページだけ: en: { order: 1 } を書いた作品を先頭に(数字が小さい順)。ほかは元の順のまま
+    if (IS_EN) {
+      works = works
+        .map(function (w, i) { return { w: w, k: typeof w.order === "number" ? w.order : 1000 + i }; })
+        .sort(function (a, b) { return a.k - b.k; })
+        .map(function (x) { return x.w; });
+    }
     if (!works.length) {
       grid.appendChild(el("p", "empty", T.empty));
       return;
