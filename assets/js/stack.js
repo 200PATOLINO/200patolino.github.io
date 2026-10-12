@@ -1,7 +1,7 @@
 /*
  * スクロールすると、次のセクションが前のセクションの上に「せり上がって」重なる演出。
  * - 各セクションは CSS の position: sticky で止まり、次のセクションがその上を覆います。
- * - 画面より長いセクションは、最後まで読み終えてから止まるよう、止まる位置を自動計算します。
+ * - 画面より長いセクションは、止めずに普通にスクロールします(次のセクションが最後の行を覆わないように)。
  * - 覆われていくセクションは少しだけ縮んで暗くなり、奥に下がったように見えます。
  * - 「視差効果を減らす」設定の人には、縮小・暗転はかかりません。
  */
@@ -22,9 +22,12 @@
     document.documentElement.style.scrollPaddingTop = headerH + "px";
     var vh = window.innerHeight;
     sections.forEach(function (s) {
-      // 短いセクション: ヘッダーのすぐ下で止まる / 長いセクション: 下端が画面下に来たところで止まる
-      var top = Math.min(headerH, vh - s.offsetHeight);
-      s.style.top = top + "px";
+      // 短いセクション: ヘッダーのすぐ下で止まり、次のセクションが上に重なる
+      // 画面より長いセクション: 止めずに普通にスクロールさせる
+      //   (止めると、ページ終端付近で次のセクションが最後の行を覆って読めなくなるため)
+      var tall = s.offsetHeight > vh - headerH;
+      s.style.position = tall ? "relative" : "";
+      s.style.top = tall ? "" : headerH + "px";
     });
     update();
   }
