@@ -32,7 +32,8 @@ window.WORKS = [
     media: { type: "youtube", id: "CBrUTeC69t4" },
     links: [{ label: "制作解説書 (PDF)", url: "" }],
     en: {
-      category: "Game sound redesign",
+      title: "Game Sound Redesign",
+      category: "Game footage sound redesign",
       description: "Tools: Logic Pro. Libraries: Soundly, Splice. Also used Foley I recorded myself. Production time: approx. 40 hours.",
       links: [{ label: "Production notes (PDF)", url: "" }]
     }
