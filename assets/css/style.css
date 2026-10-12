@@ -109,6 +109,14 @@ main, .site-footer { position: relative; z-index: 1; }
 .tool-list { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 2px; }
 .tool-list li { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; }
 
+/* ---------- 経歴(About) ---------- */
+.timeline { list-style: none; margin-top: 28px; border-left: 1px solid var(--line); padding-left: 0; }
+.timeline li { position: relative; display: grid; grid-template-columns: 4.2em 1fr; gap: 12px; padding: 7px 0 7px 22px; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: 50%; width: 7px; height: 7px; margin-top: -4px; border-radius: 50%; background: var(--bg); border: 1px solid var(--muted); }
+.timeline li:has(.tl-year:not(:empty))::before { background: var(--accent); border-color: var(--accent); }
+.tl-year { font-family: var(--font-display); font-weight: 700; color: var(--accent); font-size: 0.9rem; }
+.tl-text { color: var(--body); font-size: 0.92rem; }
+
 /* ---------- Awards ---------- */
 .award-list { list-style: none; border-top: 1px solid var(--line); }
 .award { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); }

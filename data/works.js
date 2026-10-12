@@ -25,11 +25,11 @@ window.WORKS = [
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   },
   {
-    title: "BIFSC提出作",
-    category: "映像 サウンドリデザイン",
+    title: "BIFSC 2026 Finalist",
+    category: "映像 サウンドリデザイン (Berlin International Sound Design Competition)",
     year: "2026",
     description: "使用ツール:Logic Pro。ライブラリ:Soundly、Splice。自分で収録したFoleyも使用。制作期間1か月。",
-    tags: ["SFX", "短編映像"],
+    tags: ["SFX", "短編映像", "Finalist"],
     media: { type: "youtube", id: "zdIdv4i0clI" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   },
