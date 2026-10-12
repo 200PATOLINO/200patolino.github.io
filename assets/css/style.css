@@ -306,3 +306,11 @@ html.modal-open { overflow: hidden; }
   padding: 0 12px; line-height: 1.7;
 }
 .nav a.lang-switch:hover { color: var(--text); }
+
+/* ---------- Pop-in on scroll (assets/js/reveal.js) ---------- */
+.has-reveal .reveal { opacity: 0; transform: translateY(44px) scale(0.95); }
+.has-reveal .reveal.is-in {
+  opacity: 1; transform: none;
+  transition: opacity 0.55s ease, transform 0.75s cubic-bezier(0.2, 0.9, 0.25, 1.15);
+  transition-delay: var(--rd, 0ms);
+}
