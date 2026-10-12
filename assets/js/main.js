@@ -47,6 +47,10 @@
       box.classList.add("media-video");
       box.style.backgroundImage = "url(https://i.ytimg.com/vi/" + encodeURIComponent(m.id) + "/hqdefault.jpg)";
       box.appendChild(el("span", "play"));
+    } else if (work.thumb) {
+      // 動画がない作品用: 画像(スクリーンショットなど)をサムネイルにする
+      box.classList.add("media-video", "media-image");
+      box.style.backgroundImage = 'url("' + String(work.thumb).replace(/"/g, "%22") + '")';
     } else {
       box.classList.add("media-empty");
       box.textContent = (m.type === "soundcloud" && m.url) ? "♪ AUDIO" : "動画準備中";

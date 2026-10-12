@@ -49,6 +49,7 @@ window.WORKS = [
     description: "一人称視点のナラティブホラー。担当:効果音(SFX)。クレジット名:SoMok0617。",
     tags: ["SFX", "Game Jam"],
     media: { type: "none" },
+    thumb: "https://img.itch.zone/aW1nLzI5NjExNjgwLnBuZw==/508x254%23mb/UWWhdy.png",
     links: [{ label: "itch.io でプレイ", url: "https://luvbytes404.itch.io/borrowed-skin-moonmoss" }]
   }
 ];
