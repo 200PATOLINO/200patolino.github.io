@@ -85,7 +85,15 @@ main, .site-footer { position: relative; z-index: 1; }
 .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(236, 208, 111, 0.15); flex-shrink: 0; margin-left: 4px; }
 
 /* ---------- Sections ---------- */
-.section { padding: clamp(80px, 12vh, 132px) 0 clamp(36px, 6vh, 72px); }
+.section { position: relative; overflow: clip; padding: clamp(80px, 12vh, 132px) 0 clamp(36px, 6vh, 72px); }
+.section > .wrap { position: relative; z-index: 1; }
+/* 各セクションの奥に浮かぶ巨大な輪郭文字(assets/js/parallax.js が動かす) */
+.ghost {
+  position: absolute; z-index: 0; top: clamp(8px, 4vh, 40px); right: -0.04em;
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(5.5rem, 20vw, 17rem); line-height: 0.85; letter-spacing: -0.02em;
+  color: transparent; -webkit-text-stroke: 1px rgba(242, 240, 235, 0.09);
+  white-space: nowrap; pointer-events: none; user-select: none;
+}
 
 /* ---------- 流れるスクロール(assets/js/flow.js) ---------- */
 /* セクションに枠・背景・影はなく、ひと続きのページとして流れる。JSが動いたときだけ奥行きの演出が付く */
@@ -179,8 +187,9 @@ main, .site-footer { position: relative; z-index: 1; }
 .media-image::after { background: rgba(0, 0, 0, 0.12); }
 
 /* カード内のサムネイルはゆっくりズーム、再生ボタンは黄色く光る */
-.media-thumb { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.card:hover .media-thumb, .card:focus-within .media-thumb { transform: scale(1.06); }
+/* サムネイルは枠より大きく置き、スクロールで画像だけ上下に動かす(パララックス)。ホバーでゆっくりズーム */
+.media-thumb { translate: 0 var(--py, 0px); scale: 1.14; transition: scale 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.card:hover .media-thumb, .card:focus-within .media-thumb { scale: 1.22; }
 .card:hover .play, .card:focus-within .play { background: var(--accent); transform: scale(1.08); }
 .card:hover .play::before, .card:focus-within .play::before { border-left-color: var(--bg); }
 
