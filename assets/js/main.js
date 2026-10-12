@@ -13,17 +13,12 @@
     return node;
   }
 
-  /* ---------- ヒーローの波形装飾 ---------- */
-  function buildWave() {
-    var wave = document.getElementById("wave");
-    if (!wave) return;
-    for (var i = 0; i < 56; i++) {
-      var bar = document.createElement("span");
-      var h = 18 + Math.abs(Math.sin(i * 0.55) * 60) + Math.random() * 18;
-      bar.style.setProperty("--h", Math.min(h, 100).toFixed(0) + "%");
-      bar.style.setProperty("--d", (i * 0.06).toFixed(2) + "s");
-      wave.appendChild(bar);
-    }
+  function metaNode(work) {
+    if (!work.category && !work.year) return null;
+    var p = el("p", "card-meta");
+    if (work.year) p.appendChild(el("span", "year", work.year));
+    if (work.category) p.appendChild(el("span", "category", work.category));
+    return p;
   }
 
   function visibleLinks(work) {
@@ -126,8 +121,15 @@
       modal.media.classList.add("is-audio");
     }
 
+    if (!frame && work.thumb) {
+      frame = document.createElement("img");
+      frame.className = "modal-image";
+      frame.src = work.thumb;
+      frame.alt = "";
+    }
+
     if (frame) {
-      frame.title = work.title || "";
+      if (frame.tagName === "IFRAME") frame.title = work.title || "";
       modal.media.appendChild(frame);
       modal.media.hidden = false;
       modal.panel.classList.remove("no-media");
@@ -141,8 +143,8 @@
     var body = modal.body;
     body.textContent = "";
 
-    var meta = [work.category, work.year].filter(Boolean).join(" · ");
-    if (meta) body.appendChild(el("p", "card-meta", meta));
+    var metaEl = metaNode(work);
+    if (metaEl) body.appendChild(metaEl);
 
     var title = el("h2", "modal-title", work.title || "Untitled");
     title.id = "modal-title";
@@ -202,8 +204,8 @@
     card.appendChild(buildThumb(work, open));
 
     var body = el("div", "card-body");
-    var meta = [work.category, work.year].filter(Boolean).join(" · ");
-    if (meta) body.appendChild(el("p", "card-meta", meta));
+    var cardMeta = metaNode(work);
+    if (cardMeta) body.appendChild(cardMeta);
 
     var h = el("h3", "card-title");
     var titleBtn = el("button", "title-btn", work.title || "Untitled");
@@ -295,10 +297,20 @@
     }
   }
 
+  /* ---------- 使用ツール(About) ---------- */
+  function renderTools() {
+    var site = window.SITE || {};
+    var row = document.getElementById("tools-row");
+    var list = document.getElementById("tool-list");
+    if (!row || !list || !site.tools || !site.tools.length) return;
+    site.tools.forEach(function (name) { list.appendChild(el("li", "", name)); });
+    row.hidden = false;
+  }
+
   function init() {
-    buildWave();
     renderWorks();
     renderContact();
+    renderTools();
     var year = document.getElementById("year");
     if (year) year.textContent = new Date().getFullYear();
   }
