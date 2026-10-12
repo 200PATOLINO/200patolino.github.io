@@ -41,4 +41,13 @@ window.WORKS = [
     media: { type: "youtube", id: "" },
     links: [{ label: "制作解説書 (PDF)", url: "" }]
   }
-];
+],
+  {
+    title: "Borrowed Skin",
+    category: "ゲームジャム作品 (Brackeys Game Jam 2026.2)",
+    year: "2026",
+    description: "一人称視点のナラティブホラー。担当:効果音(SFX)。クレジット名:SoMok0617。",
+    tags: ["SFX", "Game Jam"],
+    media: { type: "none" },
+    links: [{ label: "itch.io でプレイ", url: "https://luvbytes404.itch.io/borrowed-skin-moonmoss" }]
+  }
